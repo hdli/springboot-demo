@@ -71,6 +71,9 @@ public class DruidDBConfig {
     @Value("{spring.datasource.connectionProperties}")
     private String connectionProperties;
 
+    @Value("${spring.datasource.useGlobalDataSourceStat}")
+    private boolean useGlobalDataSourceStat;
+
     @Bean     //声明其为Bean实例
     @Primary  //在同样的DataSource中，首先使用被标注的DataSource
     public DataSource dataSource(){
@@ -93,6 +96,7 @@ public class DruidDBConfig {
         datasource.setTestOnReturn(testOnReturn);
         datasource.setPoolPreparedStatements(poolPreparedStatements);
         datasource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
+        datasource.setUseGlobalDataSourceStat(useGlobalDataSourceStat);
         try {
             datasource.setFilters(filters);
         } catch (SQLException e) {
