@@ -1,6 +1,11 @@
 package com.example.demo.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1331321517891628432L;
+
     private Integer userId;
 
     private String userName;
