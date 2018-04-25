@@ -1,6 +1,7 @@
 package com.example.demo.common.redis;
 
 import com.example.demo.DemoApplication;
+import com.example.demo.model.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,6 +37,11 @@ public class TestCRedis {
 
     @Test
     public void testDb(){
+        User user = new User();
+        user.setUserName("张三");
+        user.setPassword("123456");
+        user.setPhone("15601711396");
+        redis0.opsForValue().set("user1",user.toString());
 
     }
 }
