@@ -9,6 +9,10 @@ import java.sql.DriverManager;
 public class Test {
 
     public static void main(String[] args) {
+
+    }
+
+    public static void dbTest(){
         String url = "jdbc:mysql://localhost:3306/seckill";
         String driver = "com.mysql.jdbc.Driver";
         try{
