@@ -4,10 +4,14 @@ import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
+
 
 /**
  * Created by lihuidong on 2018-4-9.
@@ -15,6 +19,8 @@ import springfox.documentation.annotations.ApiIgnore;
 @Controller
 @RequestMapping(value = "/user")
 public class UserController {
+
+    private Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private UserService userService;
 
@@ -38,6 +44,7 @@ public class UserController {
     @ApiIgnore
     @GetMapping(value = "/getId/{userId}")
     public @ResponseBody User findByUserId(@PathVariable("userId") int userId){
+        logger.info("请求参数userId={}",userId);
         return userService.findByUserId(userId);
     }
 }
