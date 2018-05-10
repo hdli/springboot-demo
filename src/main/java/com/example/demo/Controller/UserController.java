@@ -34,4 +34,10 @@ public class UserController {
 
         return userService.findAllUser(pageNum,pageSize);
     }
+
+    @ApiIgnore
+    @GetMapping(value = "/getId/{userId}")
+    public @ResponseBody User findByUserId(@PathVariable("userId") int userId){
+        return userService.findByUserId(userId);
+    }
 }

@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.insertSelective(user);
     }
 
-    /*
+    /**
     * 这个方法中用到了我们开头配置依赖的分页插件pagehelper
     * 很简单，只需要在service层传入参数，然后将参数传递给一个插件的一个静态方法即可；
     * pageNum 开始页数
@@ -35,4 +35,17 @@ public class UserServiceImpl implements UserService {
         PageHelper.startPage(pageNum, pageSize);
         return userMapper.selectAllUser();
     }
+
+    /**
+     * 根据主键查找
+     * @param userId
+     * @return
+     */
+    @Override
+    public User findByUserId(int userId) {
+
+        return userMapper.selectByPrimaryKey(userId);
+    }
+
+
 }
