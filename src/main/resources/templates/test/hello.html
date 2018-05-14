@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>TEST</title>
+    <!--使用 http-equiv 已经不是规定 HTML 文档的字符集的唯一方式：
+
+    HTML 4.01： <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    HTML5： <meta charset="UTF-8">
+    -->
+   <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>-->
+</head>
+<body>
+<!--/*@thymesVar id="name" type="java.lang.String"*/-->
+<p th:text="'Hello！, ' + ${name} + '!'" >3333</p>
+
+<a th:href="@{${url}}">百度</a>
+<!--Thymeleaf中使用th:if和th:unless属性进行条件判断，下面的例子中，标签只有在th:if中条件成立时才显示：-->
+<!--th:unless于th:if恰好相反，只有表达式中的条件不成立，才会显示其内容-->
+<a th:href="@{/test/start}" th:if="${state != null}">error</a>
+</body>
+</html>
